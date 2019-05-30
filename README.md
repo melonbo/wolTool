@@ -1,5 +1,3 @@
-*http://www.95408.com/blog/3348.html*
-
 **什么是网络唤醒**
 
 网络唤醒（Wake-on-LAN，WOL）是一种计算机局域网唤醒技术，使局域网内处于关机或休眠状态的计算机，将状态转换成引导（Boot
@@ -83,7 +81,13 @@ timeout)","code":1616}，如果不是这个结果可以重来一遍，直到返�
 
 命令执行结果可能返回1617、1523，原因可能是路由器ROM版本太高，或者命令中的参数有问题。
 
-http://192.168.31.1/cgi-bin/luci/;stok=ba66652c33a114ba0bf231f10c308a7a/api/xqnetwork/set_wifi_ap?ssid=Xiaomi\&encryption=NONE&enctype=NONE&channel=1%3Bnvram%20set%20ssh%5Fen%3D1%3B%20nvram%20commithttp://192.168.31.1/cgi-bin/luci/;stok=ba66652c33a114ba0bf231f10c308a7a/api/xqnetwork/set_wifi_ap?ssid=Xiaomi&encryption=NONE&enctype=NONE&channel=1%3Bsed%20%2Di%20%22%3Ax%3AN%3As%2Fif%20%5C%5B%2E%2A%5C%3B%20then%5Cn%2E%2Areturn%200%5Cn%2E%2Afi%2F%23tb%2F%3Bb%20x%22%20%2Fetc%2Finit.d%2Fdropbearhttp://192.168.31.1/cgi-bin/luci/;stok=ba66652c33a114ba0bf231f10c308a7a/api/xqnetwork/set_wifi_ap?ssid=Xiaomi&encryption=NONE&enctype=NONE&channel=1%3B%2Fetc%2Finit.d%2Fdropbear%20starthttp://192.168.31.1/cgi-bin/luci/;stok=ba66652c33a114ba0bf231f10c308a7a/api/xqsystem/set_name_password?oldPwd=你的旧密码&newPwd=你的新密码
+http://192.168.31.1/cgi-bin/luci/;stok=ba66652c33a114ba0bf231f10c308a7a/api/xqnetwork/set_wifi_ap?ssid=Xiaomi\&encryption=NONE&enctype=NONE&channel=1%3Bnvram%20set%20ssh%5Fen%3D1%3B%20nvram%20commit
+
+http://192.168.31.1/cgi-bin/luci/;stok=ba66652c33a114ba0bf231f10c308a7a/api/xqnetwork/set_wifi_ap?ssid=Xiaomi&encryption=NONE&enctype=NONE&channel=1%3Bsed%20%2Di%20%22%3Ax%3AN%3As%2Fif%20%5C%5B%2E%2A%5C%3B%20then%5Cn%2E%2Areturn%200%5Cn%2E%2Afi%2F%23tb%2F%3Bb%20x%22%20%2Fetc%2Finit.d%2Fdropbear
+
+http://192.168.31.1/cgi-bin/luci/;stok=ba66652c33a114ba0bf231f10c308a7a/api/xqnetwork/set_wifi_ap?ssid=Xiaomi&encryption=NONE&enctype=NONE&channel=1%3B%2Fetc%2Finit.d%2Fdropbear%20start
+
+http://192.168.31.1/cgi-bin/luci/;stok=ba66652c33a114ba0bf231f10c308a7a/api/xqsystem/set_name_password?oldPwd=你的旧密码&newPwd=你的新密码
 
 **（3）通过ssh登录路由器**
 
@@ -124,5 +128,6 @@ arp -s ip地址 ma地址
 **四、唤醒软件**
 
 网上有很多wol远程唤醒的软件，但是大多数都是在局域网使用的，有一个web网站还不错（*https://www.depicus.com/wake-on-lan/woli*），但我觉的操作起来还是不太方便，每次都要重新填写，于是自己写了一个小工具，如下，在配置文件里面设置好电脑的mac地址、域名、端口号后，以后就不用再设置了。需要说明的是如果域名解析正确的话就按照域名访问你的电脑，如果域名解析不正确或者填写空白，则通过ip地址访问你的电脑，这样可以方便在局域网和广域网两种环境下使用。
+如果你发现从DNS解析的IP地址不正确，请使用ipconfig /flushdns 更新dns缓存。
 
 ![snap_screen_20190530135930.png](media/4bcca01cc3491c172a82cb42f7ce1652.png)
